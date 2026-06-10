@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="До ремонта санузла">
+  <rect width="800" height="600" fill="#78716C"/>
+  <g fill="#57534E">
+    <rect x="0" y="0" width="800" height="60"/>
+    <rect x="0" y="540" width="800" height="60"/>
+  </g>
+  <g fill="#8A8175" stroke="#5B5249" stroke-width="3">
+    <rect x="60" y="100" width="120" height="120"/>
+    <rect x="180" y="100" width="120" height="120"/>
+    <rect x="60" y="220" width="120" height="120"/>
+    <rect x="180" y="220" width="120" height="120"/>
+  </g>
+  <rect x="520" y="260" width="180" height="200" rx="10" fill="#A8A29E"/>
+  <text x="400" y="320" font-family="sans-serif" font-size="44" fill="#F5F5F4" text-anchor="middle" font-weight="bold">ДО</text>
+</svg>

@@ -2,10 +2,12 @@
 __pycache__/
 *.pyc
 
-# Node (when Next.js is added)
+# Node / Next.js
 node_modules/
 .next/
 out/
+next-env.d.ts
+*.tsbuildinfo
 
 # Env / secrets
 .env
