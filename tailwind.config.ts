@@ -1,44 +1,42 @@
 import type { Config } from 'tailwindcss';
 
-// Дизайн-токены — единственный источник стиля (SPECIFICATION.md §01).
-// Палитра: Swiss-минимализм, navy + amber-акцент. Сгенерировано ui-ux-pro-max,
-// зафиксировано в design-system/prorab-landing/MASTER.md.
+// Дизайн-токены v0.2 — Apple «liquid glass», тёмный режим (SPECIFICATION.md §01).
+// Параметры стекла — из ui-ux-pro-max (Glassmorphism / Spatial UI VisionOS),
+// сами glass-утилиты собраны в globals.css (@layer components → .glass*).
 const config: Config = {
   content: ['./src/**/*.{ts,tsx}'],
   theme: {
     extend: {
       colors: {
-        brand: {
-          DEFAULT: '#0F172A', // navy — доверие
-          dark: '#020617',
-        },
+        base: '#07090E', // фон страницы — глубокий графит
+        ink: '#0B1016', // текст на белых/янтарных кнопках
+        surface: '#11161F', // непрозрачная подложка (меню, фолбэки)
         accent: {
-          DEFAULT: '#F59E0B', // amber — строительный CTA-акцент
+          DEFAULT: '#F59E0B',
           dark: '#B45309',
         },
-        bg: '#F8FAFC',
-        surface: '#FFFFFF',
         text: {
-          DEFAULT: '#020617',
-          muted: '#475569', // slate-600 — AA на bg
+          DEFAULT: '#F2F5FA',
+          muted: '#9DA9BC', // ≥ 4.5:1 на base
         },
-        success: '#16A34A',
-        error: '#DC2626',
+        success: '#34D399',
+        error: '#F87171',
       },
       fontFamily: {
         heading: ['var(--font-heading)', 'system-ui', 'sans-serif'],
         body: ['var(--font-body)', 'system-ui', 'sans-serif'],
       },
       borderRadius: {
-        token: '0.5rem',
-        'token-lg': '0.875rem',
+        token: '1rem',
+        'token-lg': '1.5rem', // 24px — радиус стекла (VisionOS)
       },
       boxShadow: {
-        token: '0 1px 2px 0 rgb(2 6 23 / 0.06), 0 4px 16px -4px rgb(2 6 23 / 0.10)',
-        'token-lg': '0 8px 32px -8px rgb(2 6 23 / 0.18)',
+        token: '0 8px 32px rgb(0 0 0 / 0.35)',
+        'token-lg': '0 16px 48px -12px rgb(0 0 0 / 0.55)',
+        glow: '0 0 48px -8px rgb(245 158 11 / 0.35)',
       },
       maxWidth: {
-        content: '72rem', // max-w-content — единый контейнер
+        content: '72rem',
       },
       transitionTimingFunction: {
         token: 'cubic-bezier(0.16, 1, 0.3, 1)',

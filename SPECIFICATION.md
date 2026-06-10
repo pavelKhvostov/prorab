@@ -33,13 +33,22 @@ depends_on: PROJECT_IDEA.md (v0.1)
 
 ## 01. Дизайн-токены
 
-Источник: Figma (через Figma MCP) ИЛИ UI/UX Pro Max (генерация дизайн-системы).
-Фиксируется в `tailwind.config.ts` + CSS-переменные. Минимальный набор:
+> v0.2: направление изменено по решению заказчика — Apple «liquid glass»
+> (glassmorphism, тёмный), референс: тёмный kanban-дашборд на блюренном фото.
+> Параметры стекла — из ui-ux-pro-max (Glassmorphism / Spatial UI VisionOS).
 
-- `colors`: brand, brand-dark, accent, bg, surface, text, text-muted, success, error
-- `font`: heading (плотный гротеск), body (читаемый sans)
-- `radius`, `shadow`, `spacing` — из дизайн-системы
-- Тёмная/светлая тема — **не** в v1 (один режим).
+Фиксируется в `tailwind.config.ts` + утилиты `.glass` в `globals.css`:
+
+- **Один режим — тёмный.** Фон: глубокий графит `base #07090E` + размытые
+  «боке»-пятна (janтарь/слейт) как имитация блюренного фото объекта.
+- **Стекло:** `backdrop-blur 24–40px + saturate(150–180%)`, заливка
+  `white 6–12%`, бордер `white/10–15`, радиус `24px` (token-lg), мягкая тень.
+- `colors`: base, ink, surface, accent (amber #F59E0B), text, text-muted
+  (≥ 4.5:1 на base!), success, error — светлые варианты под тёмный фон.
+- `font`: heading — Manrope (плотный гротеск, кириллица), body — Inter.
+- Кнопки — «пилюли» (rounded-full): primary белая, glass полупрозрачная,
+  accent янтарная (submit формы).
+- Контраст AA проверяется на стекле поверх самых светлых пятен фона.
 
 ---
 
@@ -118,7 +127,13 @@ depends_on: PROJECT_IDEA.md (v0.1)
   - Ошибка сети → тост «не отправилось, попробуйте ещё / позвоните», данные не теряются.
   - Honeypot заполнен → молча «успех», лид не отправляется.
 
-### 3.8 Footer
+### 3.8 Плавающий CTA (v0.2, по референсу)
+- **UI:** glass-«пилюля» внизу справа (как «Ask Addy» в референсе), ведёт на `#lead`.
+- **Логика:** появляется после скролла за hero (~70% высоты вьюпорта).
+- **Анимация:** scale+fade 0.25s (Framer Motion). reduced-motion → появление без анимации.
+- **Edge:** touch-target ≥ 44px; не перекрывает поля формы на мобиле (z ниже хедера).
+
+### 3.9 Footer
 - **Данные:** телефон, мессенджеры (WhatsApp/Telegram `text url`), зона работ, год, ссылка на политику ПД.
 - **UI:** контакты + повтор CTA. Ссылка «Политика обработки персональных данных» (нужна из-за `consent`).
 
