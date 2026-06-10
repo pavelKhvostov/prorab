@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+
+# Node (when Next.js is added)
+node_modules/
+.next/
+out/
+
+# Env / secrets
+.env
+.env.local
+.env*.local
+
+# OS / editor
+.DS_Store
